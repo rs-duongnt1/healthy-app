@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 
 
 interface StackProps {
-    children: JSX.Element | JSX.Element[] | string;
+    children: JSX.Element | JSX.Element[] | string | undefined;
     direction?: 'row' | 'column' | 'row-reserve' | 'column-reserve';
     justifyContent?: 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around';
     alignItems?: 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around';

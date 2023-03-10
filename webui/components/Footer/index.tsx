@@ -1,27 +1,5 @@
-import styled from "@emotion/styled"
-import Container from "../Container"
-
-const FooterRoot = styled.div({
-    backgroundColor: 'var(--secondary)',
-    height: '128px',
-    display: 'flex',
-    alignItems: 'center'
-})
-
-const FooterNav = styled.ul({
-    display: 'flex',
-    alignItems: 'center',
-})
-
-const FooterNavItem = styled.li(({ firstChild }: { firstChild?: boolean }) => ({
-    marginLeft: firstChild ? '0' : '45px',
-    cursor: 'pointer'
-}))
-const FooterNavItemText = styled.span({
-    color: 'var(--white)',
-    fontSize: '11px',
-    lineHeight: '16px',
-})
+import Container from "@/components/base/Container"
+import { FooterNav, FooterNavItem, FooterNavItemText, FooterRoot } from "./styles"
 
 export default function Footer() {
     return <FooterRoot>

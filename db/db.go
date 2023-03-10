@@ -42,10 +42,13 @@ func NewDB() *gorm.DB {
 	if err != nil {
 		panic("Connect database failed")
 	} else {
-		db.AutoMigrate(&models.Excercise{})
+		db.AutoMigrate(&models.User{})
+		db.AutoMigrate(&models.Meal{})
+		db.AutoMigrate(&models.MealLog{})
+		db.AutoMigrate(&models.Exercise{})
+		db.AutoMigrate(&models.ExerciceLog{})
+		db.AutoMigrate(&models.BodyRecord{})
 		db.AutoMigrate(&models.Diary{})
-		db.AutoMigrate(&models.Recipe{})
-		db.AutoMigrate(&models.RecipeCategory{})
 	}
 
 	return db

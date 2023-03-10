@@ -7,11 +7,15 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"go.uber.org/fx"
 	"gorm.io/gorm"
 	"healthy-app.io/db"
+	"healthy-app.io/internal/controller"
+	"healthy-app.io/internal/repository"
+	"healthy-app.io/internal/service"
 )
 
 func main() {
@@ -21,10 +25,12 @@ func main() {
 	}
 	fx.New(
 		fx.Options(
-			fx.Invoke()
+			fx.Provide(NewDB),
+			fx.Provide(NewGin),
+			repository.Module,
+			controller.Module,
+			service.Module,
 		),
-		fx.Provide(NewDB),
-		fx.Invoke(NewGin),
 	).Run()
 }
 
@@ -36,8 +42,10 @@ func NewDB(lc fx.Lifecycle) *gorm.DB {
 
 // }
 
-func NewGin(lc fx.Lifecycle, db *gorm.DB) *gin.Engine {
+func NewGin(lc fx.Lifecycle, db *gorm.DB) *gin.RouterGroup {
 	r := gin.Default()
+	r.Use(cors.Default())
+	apiRoute := r.Group("api")
 	lc.Append(fx.Hook{
 		OnStart: func(context.Context) error {
 			fmt.Print("Starting Gin server.")
@@ -51,5 +59,5 @@ func NewGin(lc fx.Lifecycle, db *gorm.DB) *gin.Engine {
 			return nil
 		},
 	})
-	return r
+	return apiRoute
 }

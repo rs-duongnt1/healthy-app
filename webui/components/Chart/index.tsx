@@ -11,52 +11,8 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import styled from '@emotion/styled';
-import Stack from '../Stack';
-
-const ChartRoot = styled.div({
-    position: 'relative',
-    backgroundColor: '#2E2E2E',
-    height: '100%',
-    width: '100%',
-})
-
-const DateFilterRoot = styled.div({
-    position: 'absolute',
-    bottom: 16,
-    left: 32,
-    button: {
-        backgroundColor: 'var(--white)',
-        border: 'none',
-        outline: 'none',
-        color: '#FFCC21',
-        fontWeight: 300,
-        fontSize: 15,
-        lineHeight: '22px',
-        height: 24,
-        width: 56,
-        borderRadius: 11,
-    }
-})
-
-const ChartTitle = styled.div({
-    fontWeight: 400,
-    fontSize: 15,
-    lineHeight: '18px',
-    color: 'var(--white)',
-    position: 'absolute',
-    top: 16,
-    left: 24,
-})
-
-const ChartDate = styled.div({
-    fontWeight: 400,
-    fontSize: 22,
-    lineHeight: '27px',
-    color: 'var(--white)',
-    position: 'absolute',
-    top: 16,
-    left: 120,
-})
+import Stack from '@/components/Stack';
+import { ChartDate, ChartRoot, ChartTitle, DateFilterRoot } from './styles';
 
 ChartJS.register(
     CategoryScale,
