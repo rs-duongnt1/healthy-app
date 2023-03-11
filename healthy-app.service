@@ -1,0 +1,11 @@
+[Unit]
+Description=Healthy App Service
+After=network.target
+
+[Service]
+ExecStart=/var/www/healthy-app/main
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
