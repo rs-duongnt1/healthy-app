@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"fmt"
+
 	"gorm.io/gorm"
 	"healthy-app.io/constant"
 	"healthy-app.io/models"
@@ -33,9 +35,10 @@ func (c MealRepository) FindMealLogs(meals *[]models.MealLog, total int64, page 
 		}
 		queryBuilder = queryBuilder.Where("meal_id IN ?", mealIds)
 	}
+	queryBuilder.Model(&models.MealLog{}).Count(&total)
 
 	result := queryBuilder.Offset(offset).Limit(constant.PAGINATION_LIMIT).Preload("Meal").Find(&meals)
-	queryBuilder.Count(&total)
+	fmt.Println(total)
 	if result.Error != nil {
 		return result.Error, 0
 	}
