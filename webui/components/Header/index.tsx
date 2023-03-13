@@ -78,13 +78,13 @@ export default function Header() {
       id: 2,
       text: "体重グラフ",
       href: null,
-      icon: <Memo />,
+      icon: <Challenge />,
     },
     {
       id: 3,
       text: "お知らせ",
       href: null,
-      icon: <Memo />,
+      icon: <Info />,
     },
   ];
   const handleClick = (item: DropdownItem) => {
