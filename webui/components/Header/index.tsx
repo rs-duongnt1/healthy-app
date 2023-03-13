@@ -103,7 +103,7 @@ export default function Header() {
             <HeaderNav>
               {navItems.map((item) => (
                 <HeaderNavItem key={item.id} onClick={() => item.href && navigateTo(item.href)}>
-                  <Memo />
+                  {item.icon}
                   <HeaderNavItemText active={item.href === currentPath}>{item.text}</HeaderNavItemText>
                 </HeaderNavItem>
               ))}
