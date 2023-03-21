@@ -8,4 +8,5 @@ var Module = fx.Invoke(
 	InitExerciseController,
 	InitDiaryController,
 	InitUserController,
+	InitGHNController,
 )
