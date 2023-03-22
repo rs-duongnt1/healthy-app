@@ -5,6 +5,7 @@ import App from "@/layouts/app";
 import Column from "@/pages/column";
 import Home from "@/pages/home";
 import MyRecord from "@/pages/record";
+import Dashboard from "@/pages/dashboard";
 
 const router = createBrowserRouter([
   {
@@ -13,16 +14,9 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />
+        element: <Dashboard />
       },
-      {
-        path: "/records",
-        element: <MyRecord />,
-      },
-      {
-        path: "/columns",
-        element: <Column />,
-      },
+   
     ]
   },
 
